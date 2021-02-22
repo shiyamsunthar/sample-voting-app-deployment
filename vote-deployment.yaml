@@ -1,0 +1,32 @@
+#This is a sample answer yaml file for the KKE Devops task deploy-voting app on k8s 
+#Edit the below codes as per your question details.
+#Check this blog https://thirigiri.blogspot.com for kubenetes commands, how to deply this file and how to complete the task.
+#I have done a smilir task on my own envrinment check above blog for more details.
+
+apiVersion: apps/v1                                                               
+kind: Deployment                                                                  
+metadata:                                                                         
+  creationTimestamp: null                                                         
+  labels:                                                                         
+    app: vote-deployment                                                          
+  name: vote-deployment                                                           
+  namespace: vote                                                                 
+spec:                                                                             
+  replicas: 1                                                                     
+  selector:                                                                       
+    matchLabels:                                                                  
+      app: vote-deployment                                                        
+  strategy: {}                                                                    
+  template:                                                                       
+    metadata:                                                                     
+      creationTimestamp: null                                                     
+      labels:                                                                     
+        app: vote-deployment                                                      
+    spec:                                                                         
+      containers:                                                                 
+      - image: kodekloud/examplevotingapp_vote:before                             
+        name: vote                                         
+        ports:                                                                    
+        - containerPort: 80                                                       
+        resources: {}                                                             
+status: {}   
