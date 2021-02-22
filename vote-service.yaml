@@ -1,0 +1,22 @@
+#This is a sample answer yaml file for the KKE Devops task deploy-voting app on k8s 
+#Edit the below codes as per your question details.
+#Check this blog https://thirigiri.blogspot.com for kubenetes commands, how to deply this file and how to complete the task.
+#I have done a smilir task on my own envrinment check above blog for more details.
+
+apiVersion: v1
+kind: Service                                                                     
+metadata:                                                                         
+  creationTimestamp: null                                                         
+  labels:                                                                         
+    app: vote-deployment
+  name: vote-service	
+  namespace: vote
+spec:                                                                             
+  ports:                                                                          
+  - port: 5000                                                                    
+    protocol: TCP                                                                 
+    targetPort: 80
+    nodePort: 31000    
+  selector:                                                                       
+    app: vote-deployment                                                         
+  type: NodePort
